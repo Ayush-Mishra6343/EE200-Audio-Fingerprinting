@@ -1,6 +1,4 @@
-# =====================================================================
-# EE200 COURSE PROJECT: Q3B - THE ULTIMATE AUDIO FINGERPRINT ENGINE
-# =====================================================================
+#EE200 COURSE PROJECT: Q3B
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
@@ -70,9 +68,7 @@ st.caption("SIGNALS, SYSTEMS & NETWORKS • PROJECT DEMO")
 st.markdown("Index a library of songs as spectrogram fingerprints, then identify any short clip against it.")
 
 
-# =====================================================================
 # BACKEND CORE PIPELINE & MATH IMPLEMENTATION ENGINE
-# =====================================================================
 
 def extract_constellation_for_app(audio, sr, nperseg=1024, neighborhood_size=15):
     """Robust Duration-Proportional Global Peak Extractor with Silence Suppression."""
@@ -181,9 +177,8 @@ if "selected_sample" not in st.session_state:
 if "run_trigger" not in st.session_state:
     st.session_state.run_trigger = False
 
-# =====================================================================
 # RENDER MAIN INTERACTIVE TAB BAR COMPONENT MATRIX
-# =====================================================================
+
 tab_lib, tab_ident, tab_batch = st.tabs(["▪ LIBRARY", "▪ IDENTIFY", "▪ BATCH"])
 
 # --- TAB 1: REFERENCE LIBRARY CATALOG SHOWCASE ---

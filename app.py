@@ -59,6 +59,15 @@ st.markdown("""
         font-size: 11px;
         color: #718096;
     }
+
+    /* 🌟 FORCE HIGH CONTRAST COLORS FOR CANDIDATE TABLES 🌟 */
+    div[data-testid="stTable"] th {
+        color: #00ffcc !important; /* Vivid teal for table headers */
+        font-weight: bold !important;
+    }
+    div[data-testid="stTable"] td {
+        color: #ffffff !important; /* Crisp white for song rows */
+    }
     </style>
 """, unsafe_allow_html=True)
 

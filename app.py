@@ -302,13 +302,25 @@ with tab_ident:
                 runner_up_ratio = hits / sorted_scores[1][1] if len(sorted_scores) > 1 and sorted_scores[1][
                     1] > 0 else hits
 
-                st.markdown(f"""
-                    <div style='background-color:#111622; border-left:5px solid #00ffcc; padding:20px; border-radius:4px;'>
-                        <p style='color:#a0aec0; font-size:12px; font-weight:bold; margin:0;'>MATCH FOUND</p>
-                        <h1 style='color:#ffffff; margin:5px 0;'>{match_name}</h1>
-                        <p style='color:#00ffcc; font-size:13px; margin:0;'><b>Cluster Score:</b> {hits:,} &nbsp;|&nbsp; <b>{runner_up_ratio:.1f}x</b> the runner-up</p>
-                    </div>
-                """, unsafe_allow_html=True)
+                # Implement threshold validation to eliminate false positives
+                if hits < 6:
+                    st.markdown(f"""
+                                        <div style='background-color:#111622; border-left:5px solid #ff4b4b; padding:20px; border-radius:4px;'>
+                                            <p style='color:#a0aec0; font-size:12px; font-weight:bold; margin:0;'>IDENTIFICATION FAILED</p>
+                                            <h1 style='color:#ffffff; margin:5px 0;'>Signal Confidence Too Low</h1>
+                                            <p style='color:#ff4b4b; font-size:13px; margin:0;'><b>Cluster Score:</b> {hits} &nbsp;|&nbsp; A minimum threshold of 6 matching hashes is required to identify a song securely.</p>
+                                        </div>
+                                    """, unsafe_allow_html=True)
+                else:
+                    st.markdown(f"""
+                                        <div style='background-color:#111622; border-left:5px solid #00ffcc; padding:20px; border-radius:4px;'>
+                                            <p style='color:#a0aec0; font-size:12px; font-weight:bold; margin:0;'>MATCH FOUND</p>
+                                            <h1 style='color:#ffffff; margin:5px 0;'>{match_name}</h1>
+                                            <p style='color:#00ffcc; font-size:13px; margin:0;'><b>Cluster Score:</b> {hits:,} &nbsp;|&nbsp; <b>{runner_up_ratio:.1f}x</b> the runner-up</p>
+                                        </div>
+                                    """, unsafe_allow_html=True)
+
+                # --- CANDIDATE RANKINGS ---
 
                 # --- CANDIDATE RANKINGS ---
                 st.write("")

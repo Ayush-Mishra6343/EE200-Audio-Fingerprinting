@@ -71,10 +71,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Main Dashboard Typography Header
-st.title("🔬 EE200: Audio Fingerprinting")
-st.caption("SIGNALS, SYSTEMS & NETWORKS • PROJECT DEMO")
-st.markdown("Index a library of songs as spectrogram fingerprints, then identify any short clip against it.")
 
 # Main Dashboard Typography Header
 st.title("🔬 EE200: Audio Fingerprinting")

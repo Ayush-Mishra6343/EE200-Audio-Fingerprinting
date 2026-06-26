@@ -303,12 +303,12 @@ with tab_ident:
                     1] > 0 else hits
 
                 # Implement threshold validation to eliminate false positives
-                if hits < 6:
+                if hits < 30:
                     st.markdown(f"""
                                         <div style='background-color:#111622; border-left:5px solid #ff4b4b; padding:20px; border-radius:4px;'>
                                             <p style='color:#a0aec0; font-size:12px; font-weight:bold; margin:0;'>IDENTIFICATION FAILED</p>
                                             <h1 style='color:#ffffff; margin:5px 0;'>Signal Confidence Too Low</h1>
-                                            <p style='color:#ff4b4b; font-size:13px; margin:0;'><b>Cluster Score:</b> {hits} &nbsp;|&nbsp; A minimum threshold of 6 matching hashes is required to identify a song securely.</p>
+                                            <p style='color:#ff4b4b; font-size:13px; margin:0;'><b>Cluster Score:</b> {hits} &nbsp;|&nbsp; A minimum threshold of 30 matching hashes is required to identify a song securely.</p>
                                         </div>
                                     """, unsafe_allow_html=True)
                 else:
@@ -424,7 +424,7 @@ with tab_batch:
             y_b, sr_b = librosa.load(file_asset, sr=None, mono=True)
             pred_song, hits, _, _, _, _, _ = fingerprint_system.identify_query(y_b, sr_b)
 
-            if hits < 6:
+            if hits < 30:
                 pred_song = "None"
 
             batch_records.append({

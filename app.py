@@ -368,26 +368,29 @@ with tab_ident:
                     st.pyplot(fig3)
                     plt.close(fig3)
 
-                # --- STEP 3: HIGH FIDELITY UNIT INT HISTOGRAM ---
-                st.markdown("### **STEP 3** • THE PROOF")
-                st.markdown("#### The alignment spike")
+                    # --- STEP 3: HIGH FIDELITY UNIT INT HISTOGRAM ---
+                    st.markdown("### **STEP 3** • THE PROOF")
+                    st.markdown("#### The alignment spike")
 
-                if len(offsets) > 0:
-                    fig4, ax4 = plt.subplots(figsize=(12, 4))
-                    fig4.patch.set_facecolor('#0e1117')
-                    ax4.set_facecolor('#111622')
-                    # Use accurate unit-width spacing to perfectly align visual spike with true cluster score
-                    ax4.hist(offsets, bins=100, color='darkorange', edgecolor='black', linewidth=0.3, alpha=0.9)
-                    ax4.text(0.75, 0.25, "chance matches\n(noise floor)", color='#718096', transform=ax4.transAxes,
-                             ha='center', fontsize=9)
-                    ax4.set_xlabel("time offset (database frame - query frame)", color='gray')
-                    ax4.set_ylabel("hashes", color='gray')
-                    ax4.tick_params(colors='gray')
-                    ax4.grid(True, color='gray', linestyle=':', alpha=0.2)
-                    st.pyplot(fig4)
-                    plt.close(fig4)
+                    # 📊 Displays the explicit numeric score above the chart
+                    st.metric(label="Final Alignment Match Score", value=f"{hits:,} Hashes")
 
-            st.session_state.run_trigger = False
+                    if len(offsets) > 0:
+                        fig4, ax4 = plt.subplots(figsize=(12, 4))
+                        fig4.patch.set_facecolor('#0e1117')
+                        ax4.set_facecolor('#111622')
+                        # Use accurate unit-width spacing to perfectly align visual spike with true cluster score
+                        ax4.hist(offsets, bins=100, color='darkorange', edgecolor='black', linewidth=0.3, alpha=0.9)
+                        ax4.text(0.75, 0.25, "chance matches\n(noise floor)", color='#718096', transform=ax4.transAxes,
+                                 ha='center', fontsize=9)
+                        ax4.set_xlabel("time offset (database frame - query frame)", color='gray')
+                        ax4.set_ylabel("hashes", color='gray')
+                        ax4.tick_params(colors='gray')
+                        ax4.grid(True, color='gray', linestyle=':', alpha=0.2)
+                        st.pyplot(fig4)
+                        plt.close(fig4)
+
+                st.session_state.run_trigger = False
 
 # --- TAB 3: MASS BATCH EVALUATOR ENGINE ---
 with tab_batch:

@@ -1,4 +1,4 @@
-# 🔬 EE200: Robust Audio Fingerprinting System
+# 🔬 EE200: Audio Fingerprinting System
 
 ### Signals, Systems & Networks — Course Project Report
 **Indian Institute of Technology Kanpur (IITK)**

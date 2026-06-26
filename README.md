@@ -2,7 +2,9 @@
 
 ### Signals, Systems & Networks — Course Project Report
 **Indian Institute of Technology Kanpur (IITK)**
+
 Link:https://ee200-audio-fingerprinting-nnzthh9subkmfzubkog5og.streamlit.app/
+
 A high-fidelity audio fingerprinting system implemented via a Streamlit web application. Based on the landmark-pairing algorithm framework (the core concept behind Shazam), this application extracts time-frequency spectrogram features, constructs robust constellation maps, generates combinatorial forward-hashes, and identifies short, noisy, or time-shifted audio clips against an indexed library in milliseconds.
 
 ---
